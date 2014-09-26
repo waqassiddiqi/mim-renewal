@@ -62,7 +62,7 @@ public class RenewalDaemon {
     	
     	log.info("RenewalDaemon has started...");
     	
-    	log.info("RenewalDaemon will next execute on" + trigger.getNextFireTime());
+    	log.info("RenewalDaemon will next execute on: " + trigger.getNextFireTime());
 	}
 	
 	public static void main(String[] args) throws SchedulerException {

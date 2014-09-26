@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import mim.renewal.db.ChargingHistoryDAO;
 import mim.renewal.model.RenewalEntry;
@@ -20,6 +21,15 @@ public class ProcessRenewableSubscriberTask implements Job {
 	private ChargingHistoryDAO chargingDao = new ChargingHistoryDAO();
 	final SimpleDateFormat sdf = new SimpleDateFormat("MM");
 	private Logger log = Logger.getLogger(getClass().getName());
+	private static double chargeAamount = 2.50;
+	private static int chargeType = 1;
+	
+	static {
+		ResourceBundle myResources = ResourceBundle.getBundle("renewal");
+		
+		chargeAamount = Double.parseDouble(myResources.getString("renewal.charge_amount"));
+		chargeType = Integer.parseInt(myResources.getString("renewal.charge_type"));
+	}
 	
 	public void execute(JobExecutionContext context) {
 		
@@ -28,7 +38,7 @@ public class ProcessRenewableSubscriberTask implements Job {
 		List<RenewalEntry> listRenewalEntries = null;
 		
 		if(PreferenceUtil.getInt(PreferenceUtil.PREF_APP_ITERATION, 1) == 1) {
-			listRenewalEntries = chargingDao.getEligibleRenewal();
+			listRenewalEntries = chargingDao.getEligibleRenewal(chargeAamount, chargeType);
 		}
 		
 		if(listRenewalEntries != null) {

@@ -1,0 +1,27 @@
+2014-09-26 19:39:07,630 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
+2014-09-26 19:39:07,724 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
+2014-09-26 19:39:07,728 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Fri Sep 26 21:00:00 PKT 2014
+2014-09-26 19:39:07,758 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - Initializing HistoryDatabaseConnection
+2014-09-26 19:39:07,765 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connecting to jdbc:mysql://localhost:3308/mim_history?useServerPrepStmts=false&rewriteBatchedStatements=true&user=root&password=breekom@123
+2014-09-26 19:39:11,726 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total renewl records fetch for processing: 1
+2014-09-26 19:39:11,762 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.ucip.Client - Sending charging request: <methodCall><function>chargeUser</function><msisdn>923068911912</msisdn><expirydate>20141003073911</expirydate><refid>CR2609141939112b39</refid><amount>1.25</amount></methodCall>
+2014-09-26 19:39:24,766 -  [DefaultQuartzScheduler_Worker-1] ERROR mim.ucip.Client - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at mim.ucip.Client.sendRequest(Client.java:75)
+	at mim.ucip.Client.sendRequest(Client.java:46)
+	at mim.renewal.task.ProcessRenewableSubscriberTask.execute(ProcessRenewableSubscriberTask.java:45)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2014-09-26 19:39:29,189 -  [DefaultQuartzScheduler_Worker-1] DEBUG mim.renewal.db.ChargingHistoryDAO - Adding query to batch: UPDATE charge_process SET retry_count = 1, ref_id = 'CR2609141939112b39', updated = NOW(), error_code = 'null', stat = 0 WHERE id = 2821
+2014-09-26 19:39:29,566 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total records executed: 1

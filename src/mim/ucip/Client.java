@@ -81,7 +81,7 @@ public class Client {
 		    while ((line = in.readLine()) != null)
 		    	sb.append(line).append("\n");
 			
-			//if(index % 3 == 0)
+			//if(index % 5 == 0)
 			//	sb.append("<Response><result>2</result><resultCode>000</resultCode><description>20140724110615222</description></Response>");
 			//else
 			//	sb.append("<Response><result>2</result><resultCode>124</resultCode><description>20140724110615222</description></Response>");
@@ -103,7 +103,7 @@ public class Client {
 		    		entry.setStat(1);
 		    }
 			
-		    entry.setRetryCount(1);
+		    entry.setRetryCount(entry.getRetryCount() + 1);
 			
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);

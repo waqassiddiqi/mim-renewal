@@ -42,43 +42,39 @@ public class ChargingHistoryDAO {
 	
 	public void updateBatch(List<RenewalEntry> entries, String month) {
 
-		Statement stmt = null;
-		String strSqlInsert = "INSERT INTO charge_" + month + "(a_party, amount, stat, charge_type, " +
-				"created, updated, retry_count, sub_type, ref_id, error_code) VALUES('%s', %f, %d, %d, NOW(), NOW(), %d, %d, '%s', '%s');";
+		StringBuilder sb = new StringBuilder();
+		
+		//String strSqlUpdateSuccess = "UPDATE charge_process SET stat = 2 WHERE a_party IN(" + sb.substring(0, sb.length() - 1) + ")";
+		//String strSqlInsertSuccess = "INSERT IGNORE INTO charge_" + month + "(a_party, amount, stat, charge_type, " +
+		//		"created, updated, retry_count, sub_type, ref_id, error_code) SELECT a_party, amount, 2, charge_type, created, NOW(), retry_count, " +
+		//		"sub_type, ref_id, error_code FROM charge_process WHERE a_party IN(" + sb.substring(0, sb.length() - 1) + ")";
+		
+		//
+		//String strSqlInsert = "INSERT INTO charge_" + month + "(a_party, amount, stat, charge_type, " +
+		//		"created, updated, retry_count, sub_type, ref_id, error_code) VALUES('%s', %f, %d, %d, NOW(), NOW(), %d, %d, '%s', '%s');";
 		
 		
 		String strSqlUpdate = "UPDATE charge_process SET retry_count = %d, ref_id = '%s', updated = NOW(), error_code = '%s', stat = %d WHERE id = %d";
-		
+		Statement stmt = null;
 		int[] rowUpdates = null;
 		
+		boolean autoCommit = true;
+		
 		try {
-			
+			autoCommit = this.db.getConnection().getAutoCommit();
 			this.db.getConnection().setAutoCommit(false);
 			stmt = this.db.getConnection().createStatement();
 			
 			
-			long startTime = System.currentTimeMillis();
+			long startTime = System.currentTimeMillis();				
 			
 			for(RenewalEntry entry : entries) {
 				
 				if(entry.getStat() == 2) {
-					//strSql = String.format(strSqlInsert, entry.getaParty(), entry.getAmount(), entry.getStat(), entry.getChargeType(), 
-					//		entry.getRetryCount(), entry.getSubscriberType(), entry.getReferenceId(), entry.getErrorCode());
-					
-					strSqlInsert = "INSERT INTO charge_" + month + "(a_party, amount, stat, charge_type, " +
-							"created, updated, retry_count, sub_type, ref_id, error_code) VALUES('" + entry.getaParty() + 
-							"', " + entry.getAmount() + ", " + entry.getStat() + "," + entry.getChargeType() + ", NOW(), NOW(), " +
-							entry.getRetryCount() + ", " + entry.getSubscriberType() + ", '" + entry.getReferenceId() + "', '" + entry.getErrorCode() + "');";
-					
-					
-					if(log.isDebugEnabled())
-						log.debug("Adding query to batch: " + strSqlInsert);
-					
-					stmt.addBatch(strSqlInsert);
+					sb.append("'");
+					sb.append(entry.getaParty());
+					sb.append("',");
 				}
-				
-				//strSql = String.format(strSqlUpdate, (entry.getStat() != 2) ? entry.getRetryCount() + 1 : entry.getRetryCount(), 
-				//			entry.getReferenceId(), entry.getErrorCode(), entry.getStat(), entry.getId());
 				
 				strSqlUpdate = "UPDATE charge_process SET retry_count = " + ((entry.getStat() != 2) ? entry.getRetryCount() + 1 : entry.getRetryCount()) + 
 						", ref_id = '" + entry.getReferenceId() + "', updated = NOW(), error_code = '" + entry.getErrorCode() + "', " +
@@ -88,11 +84,16 @@ public class ChargingHistoryDAO {
 					log.debug("Adding query to batch: " + strSqlUpdate);
 				
 				stmt.addBatch(strSqlUpdate);
-				
-				rowUpdates = stmt.executeBatch();
-				
-				this.db.getConnection().commit();
 			}
+			
+			rowUpdates = stmt.executeBatch();
+			
+			
+			updateSuccessRenewals(month, sb.substring(0, sb.length() - 1));
+			
+			this.db.getConnection().commit();
+			
+			this.db.getConnection().setAutoCommit(autoCommit);
 			
 			long stopTime = System.currentTimeMillis();
 			long elapsedTime = stopTime - startTime;
@@ -114,7 +115,30 @@ public class ChargingHistoryDAO {
 		}
 	}
 	
-	public List<RenewalEntry> getEligibleRenewal() {
+	public void updateSuccessRenewals(String month, String aPartyNumbers) {
+		CallableStatement stmt = null;
+		
+		try {
+			stmt = this.db.getConnection().prepareCall("{ call updateSuccessRenewals(?, ?) }");
+			stmt.setString("month", month);
+			stmt.setString("a_partyNumbers", aPartyNumbers);
+			
+			int rowsAffected = stmt.executeUpdate();
+			
+			log.info("updateSuccessRenewals() -> Affected rows: " + rowsAffected);
+			
+		} catch (SQLException e) {
+			log.error("updateSuccessRenewals failed: " + e.getMessage(), e);
+		} finally {
+			try {
+				if (stmt != null) stmt.close();
+			} catch (SQLException ex) {
+				log.error("failed to close db resources: " + ex.getMessage(), ex);
+			}			
+		}
+	}
+	
+	public List<RenewalEntry> getEligibleRenewal(double chargeAmount, int chargeType) {
 		List<RenewalEntry> listRenewals = new ArrayList<RenewalEntry>();
 		CallableStatement stmt = null;
 		ResultSet rs = null;
@@ -122,8 +146,8 @@ public class ChargingHistoryDAO {
 		
 		try {
 			stmt = this.db.getConnection().prepareCall("{ call populateAndFetchEligibleRenewals(?, ?) }");
-			stmt.setDouble("chargingAmount", 2.50);
-			stmt.setInt("chargeType", 1);
+			stmt.setDouble("chargingAmount", chargeAmount);
+			stmt.setInt("chargeType", chargeType);
 			
 			rs = stmt.executeQuery();
 			
