@@ -5,9 +5,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mim.renewal.model.RenewalEntry;
+import mim.renewal.model.Subscriber;
 
 import org.apache.log4j.Logger;
 
@@ -185,5 +188,69 @@ public class ChargingHistoryDAO {
 		}
 		
 		return listRenewals;
+	}
+	
+	public List<Subscriber> getInActiveSubscribers() {
+		List<Subscriber> listSubscriber = new ArrayList<Subscriber>();
+		CallableStatement stmt = null;
+		ResultSet rs = null;
+		Subscriber subscriber = null;
+		
+		try {
+			stmt = this.db.getConnection().prepareCall("{ call fetchInActiveSubscribers() }");
+			
+			rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				subscriber = new Subscriber();
+				
+				subscriber.setaParty(rs.getString("a_party"));
+				subscriber.setInActiveDays(rs.getInt("in_active_days"));
+				subscriber.setExpiry(rs.getString("expiry"));
+				
+				listSubscriber.add(subscriber);
+			}
+		} catch (SQLException e) {
+			log.error("getInActiveSubscribers failed: " + e.getMessage(), e);
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if (stmt != null) stmt.close();
+			} catch (SQLException ex) {
+				log.error("failed to close db resources: " + ex.getMessage(), ex);
+			}			
+		}
+		
+		return listSubscriber;
+	}
+	
+	public Map<String, String> getNotifyCommands() {
+		Map<String, String> commandsMapping = new HashMap<String, String>();
+		CallableStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			stmt = this.db.getConnection().prepareCall("{ call getNotifyCommands() }");
+			
+			rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				commandsMapping.put(rs.getString("Command"), rs.getString("Xml"));
+				
+			}
+		} catch (SQLException e) {
+			log.error("getNotifyCommands failed: " + e.getMessage(), e);
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if (stmt != null) stmt.close();
+			} catch (SQLException ex) {
+				log.error("failed to close db resources: " + ex.getMessage(), ex);
+			}			
+		}
+		
+		return commandsMapping;
 	}
 }

@@ -1,13 +1,18 @@
 package mim.ucip;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringReader;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -43,7 +48,43 @@ public class Client {
 	public void sendRequest(List<RenewalEntry> entries) {
 		for(RenewalEntry entry : entries) {
 			if(entry.getStat() != 2) {
-				sendRequest(entry);
+				//sendRequest(entry);
+				
+				entry.setReferenceId(Util.generateReferenceId());
+				
+				Calendar expiryCal = Calendar.getInstance();
+				expiryCal.add(Calendar.DAY_OF_MONTH, 7);
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+				
+				String chargingRequest = RequestBuilder.build(RequestBuilder.REQUEST_FUNCTION_CHARGE,  
+					new String[] { "msisdn", entry.getaParty(), "expirydate", 
+						sdf.format(expiryCal.getTime()), "refid", entry.getReferenceId(), 
+						"amount", Integer.toString((int)entry.getAmount())
+					});
+				
+				
+				
+				RequestResult rs = sendRequest(ucipIP, ucipPort, 30, 30, chargingRequest, entry.getReferenceId());
+				
+				int errorCode = processResponse(rs.responseString);
+				
+				entry.setErrorCode(Integer.toString(errorCode));
+				
+			    switch(errorCode) {
+			    	case 0:
+			    		entry.setStat(2);
+			    		break;
+			    		
+			    	case 124:
+			    		entry.setStat(3);
+			    		break;
+			    		
+			    	default:
+			    		entry.setStat(1);
+			    }
+				
+			    entry.setRetryCount(entry.getRetryCount() + 1);
 				
 				index++;
 			}
@@ -123,16 +164,20 @@ public class Client {
 		}
 	}
 	
-	private int processResponse(String xml) throws XPathExpressionException {
+	private int processResponse(String xml) {
 		
 		log.info("Processing response: " + xml);
 		
 		XPathFactory xpathFactory = XPathFactory.newInstance();
 	    XPath xpath = xpathFactory.newXPath();
-	    String resultCode = "";
+	    String resultCode = null;
 	    
 		InputSource source = new InputSource(new StringReader(xml));		
-		resultCode = xpath.evaluate("/Response/resultCode", source);
+		try {
+			resultCode = xpath.evaluate("/Response/resultCode", source);
+		} catch (XPathExpressionException e1) {
+			e1.printStackTrace();
+		}
 		
 		if(resultCode == null)
 			return -1;
@@ -144,5 +189,99 @@ public class Client {
 		}
 		
 		return -1;
+	}
+	
+	public RequestResult sendRequest(String IP, int port, int connectTimeout,
+			int waitTimeout, String requestMsg, String refID) {
+		RequestResult result = new RequestResult();
+		DataInputStream incomingStream = null;
+		DataOutputStream outgoingStream = null;
+		String replyMsg = "";
+
+		int tokencount = 0;
+		String input = "";
+
+		Socket clientsock = null;
+		try {
+			SocketAddress sockaddr = new InetSocketAddress(IP, port);
+			clientsock = new Socket();
+			log.debug("[" + refID + "][send to server] Socket ID created");
+			int timeoutConnectMs = connectTimeout;
+			int timeoutWaitMs = waitTimeout;
+			clientsock.setSoTimeout(timeoutWaitMs);
+			clientsock.connect(sockaddr, timeoutConnectMs);
+			log.debug("[" + refID + "][send to server] Socket connected");
+
+			outgoingStream = new DataOutputStream(clientsock.getOutputStream());
+			requestMsg = requestMsg + "\r\r";
+			byte[] buf = requestMsg.getBytes();
+			outgoingStream.write(buf);
+			Thread.sleep(10L);
+			outgoingStream.flush();
+			log.debug("[" + refID + "][Request Msg] -> " + requestMsg);
+			log.debug("[" + refID + "] Data Flushed");
+
+			log.debug("[" + refID + "][send to server] Buffer sent");
+
+			incomingStream = new DataInputStream(clientsock.getInputStream());
+			log.debug("[" + refID + "][send to server] Waiting reply");
+
+			long startTime = new Date().getTime();
+			long timeRunning = 0L;
+			int token;
+			while ((token = incomingStream.read()) != -1) {
+				char ch = (char) token;
+				String s1 = Character.toString(ch);
+				replyMsg = replyMsg + (char) token;
+				tokencount++;
+
+				if (ch == '\n') {
+					break;
+				}
+				timeRunning = new Date().getTime() - startTime;
+			}
+			log.debug("[" + refID + "][send to server] time running:" + timeRunning + " MSec");
+			log.debug("[" + refID + "][send to server] completed");
+
+			clientsock.close();
+			outgoingStream.close();
+			incomingStream.close();
+			result.requestResultCode = 0;
+			result.responseString = replyMsg;
+			log.debug("[" + refID + "][Response Msg] <- "
+					+ replyMsg);
+		} catch (IOException ioExp) {
+			log
+					.error("[" + refID + "][send to server] Exception error:"
+							+ ioExp.getMessage());
+			result.requestResultCode = -2;
+			result.responseString = ioExp.getMessage();
+		} catch (Exception ex) {
+			log.error("[" + refID + "][send to server] Error: ["
+					+ ex.getMessage() + "]");
+			result.requestResultCode = -1;
+			result.responseString = ex.getMessage();
+		} finally {
+			try {
+				closeSilently(clientsock);
+				clientsock.close();
+				outgoingStream.close();
+				incomingStream.close();
+			} catch (Exception ex) {
+				log.error("[" + refID
+						+ "][send to server] Error: [" + ex.getMessage() + "]");
+			}
+		}
+		return result;
+	}
+
+	public void closeSilently(Socket s) {
+		if (s != null) {
+			try {
+				s.close();
+			} catch (IOException e2) {
+				log.error("Exception while closing socket: " + e2.toString());
+			}
+		}
 	}
 }

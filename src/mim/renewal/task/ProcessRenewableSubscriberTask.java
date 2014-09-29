@@ -49,7 +49,7 @@ public class ProcessRenewableSubscriberTask implements Job {
 		
 		cleanUp();
 		
-		if(context.getNextFireTime() != null)
+		if(context != null && context.getNextFireTime() != null)
 			log.info("Renewal deamon will next fire at: " + context.getNextFireTime());
 	}
 	
