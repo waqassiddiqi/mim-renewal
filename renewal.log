@@ -198,3 +198,57 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2014-09-26 21:31:38,683 -  [DefaultQuartzScheduler_Worker-1] ERROR mim.ucip.Client - [260914213133b0c7][send to server] Error: [null]
 2014-09-26 21:31:57,008 -  [DefaultQuartzScheduler_Worker-1] DEBUG mim.renewal.db.ChargingHistoryDAO - Adding query to batch: UPDATE charge_process SET retry_count = 2, ref_id = '260914213133b0c7', updated = NOW(), error_code = 'null', stat = 1 WHERE id = 2825
 2014-09-26 21:31:57,228 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total records executed: 1
+2014-10-03 14:53:43,368 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
+2014-10-03 14:53:43,450 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
+2014-10-03 14:53:43,456 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Fri Oct 03 17:00:00 PKT 2014
+2014-10-03 14:53:43,485 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - Initializing HistoryDatabaseConnection
+2014-10-03 14:53:43,492 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connecting to jdbc:mysql://localhost:33306/mim_history?useServerPrepStmts=false&rewriteBatchedStatements=true&user=root&password=breekom@123
+2014-10-03 14:53:44,650 -  [DefaultQuartzScheduler_Worker-1] ERROR mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connection failed: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1137)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:356)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2504)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2541)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2323)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:832)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:417)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:344)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at mim.renewal.db.DatabaseConnection.connect(DatabaseConnection.java:52)
+	at mim.renewal.db.DatabaseConnection.getConnection(DatabaseConnection.java:26)
+	at mim.renewal.db.ChargingHistoryDAO.getEligibleRenewal(ChargingHistoryDAO.java:151)
+	at mim.renewal.task.ProcessRenewableSubscriberTask.execute(ProcessRenewableSubscriberTask.java:41)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:258)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:306)
+	... 20 more
+2014-10-03 14:53:44,654 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total renewl records fetch for processing: 0

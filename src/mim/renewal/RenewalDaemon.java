@@ -2,7 +2,6 @@ package mim.renewal;
 
 import java.util.ResourceBundle;
 
-import mim.renewal.task.NotifyInActiveSubscriberTask;
 import mim.renewal.task.ProcessRenewableSubscriberTask;
 
 import org.apache.log4j.Logger;
@@ -55,28 +54,15 @@ public class RenewalDaemon {
 				.startNow()
 				.build();
 		
-		JobDetail jobNotify = JobBuilder.newJob(NotifyInActiveSubscriberTask.class)
-				.withIdentity("notifyInActive", "group1")
-				.build(); 
-		
-		Trigger dailyNotifyTrigger = TriggerBuilder
-				.newTrigger()
-				.withIdentity("notifyTrigger", "group1")
-				.withSchedule(CronScheduleBuilder.cronSchedule("0 15 12 * * ?"))
-				.startNow()
-				.build();
-		
 		Scheduler scheduler = new StdSchedulerFactory().getScheduler();
     	scheduler.start();
     	scheduler.scheduleJob(job, trigger);
-    	scheduler.scheduleJob(jobNotify, dailyNotifyTrigger);
     	
     	scheduler.triggerJob(job.getKey());
     	
     	log.info("RenewalDaemon has started...");
     	
     	log.info("RenewalDaemon will next execute on: " + trigger.getNextFireTime());
-    	log.info("NotifyInActiveDeamon will next execute on: " + dailyNotifyTrigger.getNextFireTime());
 	}
 	
 	public static void main(String[] args) throws SchedulerException {
