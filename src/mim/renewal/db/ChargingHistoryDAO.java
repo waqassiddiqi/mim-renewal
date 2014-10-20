@@ -79,7 +79,7 @@ public class ChargingHistoryDAO {
 					sb.append("',");
 				}
 				
-				strSqlUpdate = "UPDATE charge_process SET retry_count = " + ((entry.getStat() != 2) ? entry.getRetryCount() + 1 : entry.getRetryCount()) + 
+				strSqlUpdate = "UPDATE charge_process SET retry_count = " + entry.getRetryCount() + 
 						", ref_id = '" + entry.getReferenceId() + "', updated = NOW(), error_code = '" + entry.getErrorCode() + "', " +
 								"stat = " + entry.getStat() + " WHERE id = " + entry.getId();
 				
