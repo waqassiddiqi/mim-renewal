@@ -27,7 +27,7 @@ public class ChargingHistoryDAO {
 		CallableStatement stmt = null;
 		
 		try {
-			stmt = this.db.getConnection().prepareCall("{ call resetEligibleRenewals(?, ?) }");
+			stmt = this.db.getConnection().prepareCall("{ call resetEligibleRenewals(?) }");
 			stmt.setString("month", month);
 			
 			stmt.executeUpdate();

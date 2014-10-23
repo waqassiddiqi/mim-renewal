@@ -65,7 +65,7 @@ public class Client {
 				
 				
 				
-				RequestResult rs = sendRequest(ucipIP, ucipPort, 30, 30, chargingRequest, entry.getReferenceId());
+				RequestResult rs = sendRequest(ucipIP, ucipPort, 20000, 20000, chargingRequest, entry.getReferenceId());
 				
 				int errorCode = processResponse(rs.responseString);
 				
