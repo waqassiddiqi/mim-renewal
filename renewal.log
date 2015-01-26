@@ -258,3 +258,607 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2014-10-20 11:52:15,061 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
 2014-10-20 11:52:15,157 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
 2014-10-20 11:52:15,161 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Mon Oct 20 12:00:00 PKT 2014
+2015-01-26 16:30:55,784 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
+2015-01-26 16:30:55,952 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
+2015-01-26 16:30:55,958 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Mon Jan 26 17:00:00 PKT 2015
+2015-01-26 16:30:55,968 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - Initializing HistoryDatabaseConnection
+2015-01-26 16:30:56,016 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connecting to jdbc:mysql://localhost:3308/mim_history?useServerPrepStmts=false&rewriteBatchedStatements=true&user=root&password=breekom@123
+2015-01-26 16:31:00,034 -  [DefaultQuartzScheduler_Worker-1] ERROR mim.renewal.db.ChargingHistoryDAO - getEligibleRenewal failed: Reference 'COS' not supported (forward reference in item list)
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Reference 'COS' not supported (forward reference in item list)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.Util.getInstance(Util.java:383)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1062)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4226)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4158)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2615)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2776)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2840)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2082)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2212)
+	at com.mysql.jdbc.CallableStatement.executeQuery(CallableStatement.java:956)
+	at mim.renewal.db.ChargingHistoryDAO.getEligibleRenewal(ChargingHistoryDAO.java:170)
+	at mim.renewal.task.ProcessRenewableSubscriberTask.execute(ProcessRenewableSubscriberTask.java:41)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2015-01-26 16:31:00,046 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total renewl records fetch for processing: 0
+2015-01-26 16:31:00,049 -  [DefaultQuartzScheduler_Worker-1] DEBUG mim.renewal.db.ChargingHistoryDAO - Batch sql execution completed in (msec)0
+2015-01-26 16:31:00,049 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - ----------------------------------- Summary - Mon Jan 26 16:31:00 PKT 2015 ---------------------------------
+2015-01-26 16:31:00,050 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Month table: 0, Subscriber table: 0, Charge Process table: 0
+2015-01-26 16:31:00,050 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - -------------------------------------------------------------------------------------------------------------
+2015-01-26 16:31:34,357 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
+2015-01-26 16:31:34,435 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
+2015-01-26 16:31:34,441 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Mon Jan 26 17:00:00 PKT 2015
+2015-01-26 16:31:34,453 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - Initializing HistoryDatabaseConnection
+2015-01-26 16:31:34,462 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connecting to jdbc:mysql://localhost:3308/mim_history?useServerPrepStmts=false&rewriteBatchedStatements=true&user=root&password=breekom@123
+2015-01-26 16:31:38,364 -  [DefaultQuartzScheduler_Worker-1] ERROR mim.renewal.db.ChargingHistoryDAO - getEligibleRenewal failed: Reference 'COS' not supported (forward reference in item list)
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Reference 'COS' not supported (forward reference in item list)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.Util.getInstance(Util.java:383)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1062)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4226)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4158)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2615)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2776)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2840)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2082)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2212)
+	at com.mysql.jdbc.CallableStatement.executeQuery(CallableStatement.java:956)
+	at mim.renewal.db.ChargingHistoryDAO.getEligibleRenewal(ChargingHistoryDAO.java:170)
+	at mim.renewal.task.ProcessRenewableSubscriberTask.execute(ProcessRenewableSubscriberTask.java:41)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+2015-01-26 16:31:38,367 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total renewl records fetch for processing: 0
+2015-01-26 16:31:38,370 -  [DefaultQuartzScheduler_Worker-1] DEBUG mim.renewal.db.ChargingHistoryDAO - Batch sql execution completed in (msec)0
+2015-01-26 16:31:38,370 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - ----------------------------------- Summary - Mon Jan 26 16:31:38 PKT 2015 ---------------------------------
+2015-01-26 16:31:38,371 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Month table: 0, Subscriber table: 0, Charge Process table: 0
+2015-01-26 16:31:38,371 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - -------------------------------------------------------------------------------------------------------------
+2015-01-26 16:32:21,862 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
+2015-01-26 16:32:21,942 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
+2015-01-26 16:32:21,948 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Mon Jan 26 17:00:00 PKT 2015
+2015-01-26 16:32:21,961 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - Initializing HistoryDatabaseConnection
+2015-01-26 16:32:21,970 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connecting to jdbc:mysql://localhost:3308/mim_history?useServerPrepStmts=false&rewriteBatchedStatements=true&user=root&password=breekom@123
+2015-01-26 16:32:26,436 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total renewl records fetch for processing: 174
+2015-01-26 16:32:26,486 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923002454156
+2015-01-26 16:32:26,802 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923002454156
+2015-01-26 16:32:27,113 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923002454156
+2015-01-26 16:32:27,426 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923002949482
+2015-01-26 16:32:27,739 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923002949482
+2015-01-26 16:32:28,065 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923002949482
+2015-01-26 16:32:28,378 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923003000914
+2015-01-26 16:32:28,690 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923003000914
+2015-01-26 16:32:29,002 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923003000914
+2015-01-26 16:32:29,314 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923003274992
+2015-01-26 16:32:29,627 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923003274992
+2015-01-26 16:32:29,942 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923003274992
+2015-01-26 16:32:30,280 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923003495101
+2015-01-26 16:32:30,593 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923003495101
+2015-01-26 16:32:30,906 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923003495101
+2015-01-26 16:32:31,220 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923003560725
+2015-01-26 16:32:31,576 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923003560725
+2015-01-26 16:32:31,888 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923003560725
+2015-01-26 16:32:32,201 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923003653704
+2015-01-26 16:32:32,512 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923003653704
+2015-01-26 16:32:32,824 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923003653704
+2015-01-26 16:32:33,136 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923006483793
+2015-01-26 16:32:33,448 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923006483793
+2015-01-26 16:32:33,838 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923006483793
+2015-01-26 16:32:34,181 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923008347952
+2015-01-26 16:32:34,525 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923008347952
+2015-01-26 16:32:34,853 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923008347952
+2015-01-26 16:32:35,179 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923009036597
+2015-01-26 16:32:35,506 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923009036597
+2015-01-26 16:32:35,835 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923009036597
+2015-01-26 16:32:36,178 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923009581184
+2015-01-26 16:32:36,490 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923009581184
+2015-01-26 16:32:36,803 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923009581184
+2015-01-26 16:32:37,146 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923012021722
+2015-01-26 16:32:37,457 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923012021722
+2015-01-26 16:32:37,769 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923012021722
+2015-01-26 16:32:38,081 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923012128199
+2015-01-26 16:32:38,395 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923012128199
+2015-01-26 16:32:38,709 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923012128199
+2015-01-26 16:32:39,032 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923012317764
+2015-01-26 16:32:39,361 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923012317764
+2015-01-26 16:32:39,673 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923012317764
+2015-01-26 16:32:39,984 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923012366668
+2015-01-26 16:32:40,299 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923012366668
+2015-01-26 16:32:40,655 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923012366668
+2015-01-26 16:32:40,968 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923012588491
+2015-01-26 16:32:41,295 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923012588491
+2015-01-26 16:32:41,609 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923012588491
+2015-01-26 16:32:41,935 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923012903887
+2015-01-26 16:32:42,247 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923012903887
+2015-01-26 16:32:42,558 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923012903887
+2015-01-26 16:32:42,871 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923013512049
+2015-01-26 16:32:43,198 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923013512049
+2015-01-26 16:32:43,511 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923013512049
+2015-01-26 16:32:43,823 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923014614290
+2015-01-26 16:32:44,135 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923014614290
+2015-01-26 16:32:44,461 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923014614290
+2015-01-26 16:32:44,805 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923015104508
+2015-01-26 16:32:45,147 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923015104508
+2015-01-26 16:32:45,492 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923015104508
+2015-01-26 16:32:45,866 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923015684715
+2015-01-26 16:32:46,194 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923015684715
+2015-01-26 16:32:46,505 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923015684715
+2015-01-26 16:32:46,817 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923016807989
+2015-01-26 16:32:47,145 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923016807989
+2015-01-26 16:32:47,488 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923016807989
+2015-01-26 16:32:47,815 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923017225006
+2015-01-26 16:32:48,128 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923017225006
+2015-01-26 16:32:48,456 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923017225006
+2015-01-26 16:32:48,800 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923017264620
+2015-01-26 16:32:49,110 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923017264620
+2015-01-26 16:32:49,423 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923017264620
+2015-01-26 16:32:49,783 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923017429515
+2015-01-26 16:32:50,109 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923017429515
+2015-01-26 16:32:50,437 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923017429515
+2015-01-26 16:32:50,749 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923018158914
+2015-01-26 16:32:51,062 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923018158914
+2015-01-26 16:32:51,373 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923018158914
+2015-01-26 16:32:51,685 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923022127862
+2015-01-26 16:32:51,998 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923022127862
+2015-01-26 16:32:52,310 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923022127862
+2015-01-26 16:32:52,622 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923022214010
+2015-01-26 16:32:52,933 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923022214010
+2015-01-26 16:32:53,246 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923022214010
+2015-01-26 16:32:53,572 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923022771297
+2015-01-26 16:32:53,885 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923022771297
+2015-01-26 16:32:54,212 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923022771297
+2015-01-26 16:32:54,526 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923022804307
+2015-01-26 16:32:54,837 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923022804307
+2015-01-26 16:32:55,164 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923022804307
+2015-01-26 16:32:55,476 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923023075088
+2015-01-26 16:32:55,788 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923023075088
+2015-01-26 16:32:56,101 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923023075088
+2015-01-26 16:32:56,413 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923023330855
+2015-01-26 16:32:56,725 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923023330855
+2015-01-26 16:32:57,053 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923023330855
+2015-01-26 16:32:57,381 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923025600859
+2015-01-26 16:32:57,695 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923025600859
+2015-01-26 16:32:58,003 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923025600859
+2015-01-26 16:32:58,318 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923025762544
+2015-01-26 16:32:58,644 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923025762544
+2015-01-26 16:32:58,957 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923025762544
+2015-01-26 16:32:59,271 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923027066045
+2015-01-26 16:32:59,580 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923027066045
+2015-01-26 16:32:59,907 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923027066045
+2015-01-26 16:33:00,220 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923027211734
+2015-01-26 16:33:00,531 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923027211734
+2015-01-26 16:33:00,847 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923027211734
+2015-01-26 16:33:01,169 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923027901778
+2015-01-26 16:33:01,483 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923027901778
+2015-01-26 16:33:01,795 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923027901778
+2015-01-26 16:33:02,107 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923028026344
+2015-01-26 16:33:02,419 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923028026344
+2015-01-26 16:33:02,749 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923028026344
+2015-01-26 16:33:03,089 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923028034090
+2015-01-26 16:33:03,433 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923028034090
+2015-01-26 16:33:03,809 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923028034090
+2015-01-26 16:33:04,151 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923028919656
+2015-01-26 16:33:04,484 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923028919656
+2015-01-26 16:33:04,805 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923028919656
+2015-01-26 16:33:05,117 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923028933782
+2015-01-26 16:33:05,430 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923028933782
+2015-01-26 16:33:05,773 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923028933782
+2015-01-26 16:33:06,085 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923029002618
+2015-01-26 16:33:06,397 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923029002618
+2015-01-26 16:33:06,708 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923029002618
+2015-01-26 16:33:07,021 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923029263015
+2015-01-26 16:33:07,348 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923029263015
+2015-01-26 16:33:07,660 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923029263015
+2015-01-26 16:33:07,977 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923029773890
+2015-01-26 16:33:08,300 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923029773890
+2015-01-26 16:33:08,611 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923029773890
+2015-01-26 16:33:08,924 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923030088213
+2015-01-26 16:33:09,239 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923030088213
+2015-01-26 16:33:09,563 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923030088213
+2015-01-26 16:33:09,893 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923030797823
+2015-01-26 16:33:10,205 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923030797823
+2015-01-26 16:33:10,515 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923030797823
+2015-01-26 16:33:10,829 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923030965771
+2015-01-26 16:33:11,140 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923030965771
+2015-01-26 16:33:11,466 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923030965771
+2015-01-26 16:33:11,780 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923032240729
+2015-01-26 16:33:12,091 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923032240729
+2015-01-26 16:33:12,403 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923032240729
+2015-01-26 16:33:12,732 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923032414493
+2015-01-26 16:33:13,044 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923032414493
+2015-01-26 16:33:13,373 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923032414493
+2015-01-26 16:33:13,684 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923032692686
+2015-01-26 16:33:13,994 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923032692686
+2015-01-26 16:33:14,305 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923032692686
+2015-01-26 16:33:14,619 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923033090905
+2015-01-26 16:33:14,931 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923033090905
+2015-01-26 16:33:15,258 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923033090905
+2015-01-26 16:33:15,571 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923033310979
+2015-01-26 16:33:15,883 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923033310979
+2015-01-26 16:33:16,195 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923033310979
+2015-01-26 16:33:16,523 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923033385606
+2015-01-26 16:33:16,839 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923033385606
+2015-01-26 16:33:17,161 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923033385606
+2015-01-26 16:33:17,473 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923033508572
+2015-01-26 16:33:17,785 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923033508572
+2015-01-26 16:33:18,098 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923033508572
+2015-01-26 16:33:18,410 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923033708770
+2015-01-26 16:33:18,721 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923033708770
+2015-01-26 16:33:19,036 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923033708770
+2015-01-26 16:33:19,361 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923034470581
+2015-01-26 16:33:19,674 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923034470581
+2015-01-26 16:33:20,000 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923034470581
+2015-01-26 16:33:20,313 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923034771509
+2015-01-26 16:33:20,625 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923034771509
+2015-01-26 16:33:20,937 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923034771509
+2015-01-26 16:33:21,250 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923035260872
+2015-01-26 16:33:21,562 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923035260872
+2015-01-26 16:33:21,873 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923035260872
+2015-01-26 16:33:22,199 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923035415924
+2015-01-26 16:33:22,543 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923035415924
+2015-01-26 16:33:22,856 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923035415924
+2015-01-26 16:33:23,167 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923035631833
+2015-01-26 16:33:23,479 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923035631833
+2015-01-26 16:33:23,792 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923035631833
+2015-01-26 16:33:24,103 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923035692463
+2015-01-26 16:33:24,417 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923035692463
+2015-01-26 16:33:24,746 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923035692463
+2015-01-26 16:33:25,055 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923036723262
+2015-01-26 16:33:25,369 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923036723262
+2015-01-26 16:33:25,756 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923036723262
+2015-01-26 16:33:26,069 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923037519671
+2015-01-26 16:33:26,382 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923037519671
+2015-01-26 16:33:26,693 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923037519671
+2015-01-26 16:33:27,005 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923038193131
+2015-01-26 16:33:27,317 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923038193131
+2015-01-26 16:33:27,629 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923038193131
+2015-01-26 16:33:27,942 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923038206517
+2015-01-26 16:33:28,285 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923038206517
+2015-01-26 16:33:28,596 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923038206517
+2015-01-26 16:33:28,909 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923038429024
+2015-01-26 16:33:29,221 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923038429024
+2015-01-26 16:33:29,533 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923038429024
+2015-01-26 16:33:29,845 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923038724095
+2015-01-26 16:33:30,156 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923038724095
+2015-01-26 16:33:30,471 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923038724095
+2015-01-26 16:33:30,781 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923039059350
+2015-01-26 16:33:31,097 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923039059350
+2015-01-26 16:33:31,421 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923039059350
+2015-01-26 16:33:31,798 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923039732347
+2015-01-26 16:33:32,122 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923039732347
+2015-01-26 16:33:32,434 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923039732347
+2015-01-26 16:33:32,748 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923040326039
+2015-01-26 16:33:33,058 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923040326039
+2015-01-26 16:33:33,370 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923040326039
+2015-01-26 16:33:33,698 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923040365007
+2015-01-26 16:33:34,025 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923040365007
+2015-01-26 16:33:34,338 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923040365007
+2015-01-26 16:33:34,650 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923041006375
+2015-01-26 16:33:34,977 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923041006375
+2015-01-26 16:33:35,289 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923041006375
+2015-01-26 16:33:35,617 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923041176945
+2015-01-26 16:33:35,945 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923041176945
+2015-01-26 16:33:36,273 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923041176945
+2015-01-26 16:33:36,584 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923042425585
+2015-01-26 16:33:36,912 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923042425585
+2015-01-26 16:33:37,223 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923042425585
+2015-01-26 16:33:37,536 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923042832356
+2015-01-26 16:33:37,848 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923042832356
+2015-01-26 16:33:38,160 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923042832356
+2015-01-26 16:33:38,472 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043050075
+2015-01-26 16:33:38,783 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043050075
+2015-01-26 16:33:39,095 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043050075
+2015-01-26 16:33:39,407 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043100933
+2015-01-26 16:33:39,735 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043100933
+2015-01-26 16:33:40,048 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043100933
+2015-01-26 16:33:40,360 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043175322
+2015-01-26 16:33:40,674 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043175322
+2015-01-26 16:33:40,983 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043175322
+2015-01-26 16:33:41,296 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043301195
+2015-01-26 16:33:41,607 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043301195
+2015-01-26 16:33:41,919 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043301195
+2015-01-26 16:33:42,231 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043489450
+2015-01-26 16:33:42,545 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043489450
+2015-01-26 16:33:42,855 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043489450
+2015-01-26 16:33:43,168 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043858928
+2015-01-26 16:33:43,495 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043858928
+2015-01-26 16:33:43,807 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043858928
+2015-01-26 16:33:44,120 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043870213
+2015-01-26 16:33:44,431 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043870213
+2015-01-26 16:33:44,744 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043870213
+2015-01-26 16:33:45,055 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923043933264
+2015-01-26 16:33:45,367 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923043933264
+2015-01-26 16:33:45,679 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923043933264
+2015-01-26 16:33:45,994 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923044179627
+2015-01-26 16:33:46,304 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923044179627
+2015-01-26 16:33:46,615 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923044179627
+2015-01-26 16:33:46,927 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923045129099
+2015-01-26 16:33:47,240 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923045129099
+2015-01-26 16:33:47,551 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923045129099
+2015-01-26 16:33:47,864 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923045280937
+2015-01-26 16:33:48,176 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923045280937
+2015-01-26 16:33:48,503 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923045280937
+2015-01-26 16:33:48,846 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923045512394
+2015-01-26 16:33:49,158 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923045512394
+2015-01-26 16:33:49,470 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923045512394
+2015-01-26 16:33:49,784 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923045568802
+2015-01-26 16:33:50,095 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923045568802
+2015-01-26 16:33:50,421 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923045568802
+2015-01-26 16:33:50,733 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923046307719
+2015-01-26 16:33:51,046 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923046307719
+2015-01-26 16:33:51,374 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923046307719
+2015-01-26 16:33:51,700 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923046694460
+2015-01-26 16:33:52,013 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923046694460
+2015-01-26 16:33:52,329 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923046694460
+2015-01-26 16:33:52,654 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923047809385
+2015-01-26 16:33:52,965 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923047809385
+2015-01-26 16:33:53,293 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923047809385
+2015-01-26 16:33:53,605 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923047993498
+2015-01-26 16:33:53,916 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923047993498
+2015-01-26 16:33:54,228 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923047993498
+2015-01-26 16:33:54,541 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923048429284
+2015-01-26 16:33:54,853 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923048429284
+2015-01-26 16:33:55,165 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923048429284
+2015-01-26 16:33:55,476 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923048552430
+2015-01-26 16:33:55,820 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923048552430
+2015-01-26 16:33:56,137 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923048552430
+2015-01-26 16:33:56,474 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923048745988
+2015-01-26 16:33:56,787 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923048745988
+2015-01-26 16:33:57,115 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923048745988
+2015-01-26 16:33:57,426 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923048813662
+2015-01-26 16:33:57,754 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923048813662
+2015-01-26 16:33:58,068 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923048813662
+2015-01-26 16:33:58,395 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923049082836
+2015-01-26 16:33:58,707 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923049082836
+2015-01-26 16:33:59,018 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923049082836
+2015-01-26 16:33:59,329 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923049215224
+2015-01-26 16:33:59,657 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923049215224
+2015-01-26 16:33:59,969 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923049215224
+2015-01-26 16:34:00,282 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923049250310
+2015-01-26 16:34:00,609 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923049250310
+2015-01-26 16:34:00,922 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923049250310
+2015-01-26 16:34:01,233 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923049738514
+2015-01-26 16:34:01,545 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923049738514
+2015-01-26 16:34:01,872 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923049738514
+2015-01-26 16:34:02,184 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923049919743
+2015-01-26 16:34:02,512 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923049919743
+2015-01-26 16:34:02,825 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923049919743
+2015-01-26 16:34:03,152 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923052040930
+2015-01-26 16:34:03,513 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923052040930
+2015-01-26 16:34:03,823 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923052040930
+2015-01-26 16:34:04,135 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923052467279
+2015-01-26 16:34:04,447 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923052467279
+2015-01-26 16:34:04,760 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923052467279
+2015-01-26 16:34:05,087 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923053292190
+2015-01-26 16:34:05,398 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923053292190
+2015-01-26 16:34:05,711 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923053292190
+2015-01-26 16:34:06,027 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923054322465
+2015-01-26 16:34:06,351 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923054322465
+2015-01-26 16:34:06,664 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923054322465
+2015-01-26 16:34:06,974 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923054857212
+2015-01-26 16:34:07,286 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923054857212
+2015-01-26 16:34:07,599 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923054857212
+2015-01-26 16:34:07,926 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923055379103
+2015-01-26 16:34:08,237 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923055379103
+2015-01-26 16:34:08,580 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923055379103
+2015-01-26 16:34:08,909 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923055519047
+2015-01-26 16:34:09,223 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923055519047
+2015-01-26 16:34:09,534 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923055519047
+2015-01-26 16:34:09,844 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923055708013
+2015-01-26 16:34:10,156 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923055708013
+2015-01-26 16:34:10,469 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923055708013
+2015-01-26 16:34:10,812 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923057151131
+2015-01-26 16:34:11,124 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923057151131
+2015-01-26 16:34:11,436 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923057151131
+2015-01-26 16:34:11,749 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923058724727
+2015-01-26 16:34:12,060 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923058724727
+2015-01-26 16:34:12,371 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923058724727
+2015-01-26 16:34:12,683 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923059442794
+2015-01-26 16:34:12,997 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923059442794
+2015-01-26 16:34:13,323 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923059442794
+2015-01-26 16:34:13,668 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923059700523
+2015-01-26 16:34:13,979 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923059700523
+2015-01-26 16:34:14,291 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923059700523
+2015-01-26 16:34:14,603 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923062506845
+2015-01-26 16:34:14,915 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923062506845
+2015-01-26 16:34:15,226 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923062506845
+2015-01-26 16:34:15,539 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923062601460
+2015-01-26 16:34:15,851 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923062601460
+2015-01-26 16:34:16,170 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923062601460
+2015-01-26 16:34:16,491 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923062659313
+2015-01-26 16:34:16,819 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923062659313
+2015-01-26 16:34:17,131 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923062659313
+2015-01-26 16:34:17,442 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923063170687
+2015-01-26 16:34:17,771 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923063170687
+2015-01-26 16:34:18,097 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923063170687
+2015-01-26 16:34:18,410 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923063239315
+2015-01-26 16:34:18,736 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923063239315
+2015-01-26 16:34:19,049 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923063239315
+2015-01-26 16:34:19,361 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923063884607
+2015-01-26 16:34:19,678 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923063884607
+2015-01-26 16:34:19,985 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923063884607
+2015-01-26 16:34:20,297 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923064382508
+2015-01-26 16:34:20,609 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923064382508
+2015-01-26 16:34:20,921 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923064382508
+2015-01-26 16:34:21,233 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923064910305
+2015-01-26 16:34:21,561 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923064910305
+2015-01-26 16:34:21,873 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923064910305
+2015-01-26 16:34:22,184 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923065243478
+2015-01-26 16:34:22,497 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923065243478
+2015-01-26 16:34:22,824 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923065243478
+2015-01-26 16:34:23,139 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923065881762
+2015-01-26 16:34:23,497 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923065881762
+2015-01-26 16:34:23,808 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923065881762
+2015-01-26 16:34:24,134 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923066087066
+2015-01-26 16:34:24,466 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923066087066
+2015-01-26 16:34:24,774 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923066087066
+2015-01-26 16:34:25,087 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923066147371
+2015-01-26 16:34:25,398 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923066147371
+2015-01-26 16:34:25,710 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923066147371
+2015-01-26 16:34:26,022 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923066586417
+2015-01-26 16:34:26,334 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923066586417
+2015-01-26 16:34:26,647 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923066586417
+2015-01-26 16:34:26,958 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923066711349
+2015-01-26 16:34:27,271 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923066711349
+2015-01-26 16:34:27,583 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923066711349
+2015-01-26 16:34:27,910 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923067327922
+2015-01-26 16:34:28,222 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923067327922
+2015-01-26 16:34:28,534 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923067327922
+2015-01-26 16:34:28,849 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923068151524
+2015-01-26 16:34:29,158 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923068151524
+2015-01-26 16:34:29,470 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923068151524
+2015-01-26 16:34:29,797 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923068528061
+2015-01-26 16:34:30,109 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923068528061
+2015-01-26 16:34:30,422 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923068528061
+2015-01-26 16:34:30,750 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923068819248
+2015-01-26 16:34:31,063 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923068819248
+2015-01-26 16:34:31,374 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923068819248
+2015-01-26 16:34:31,686 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923068911497
+2015-01-26 16:34:31,998 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923068911497
+2015-01-26 16:34:32,326 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923068911497
+2015-01-26 16:34:32,653 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923072279740
+2015-01-26 16:34:32,964 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923072279740
+2015-01-26 16:34:33,292 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923072279740
+2015-01-26 16:34:33,604 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923072395374
+2015-01-26 16:34:33,916 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923072395374
+2015-01-26 16:34:34,228 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923072395374
+2015-01-26 16:34:34,540 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923072517394
+2015-01-26 16:34:34,854 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923072517394
+2015-01-26 16:34:35,181 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923072517394
+2015-01-26 16:34:35,494 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923072829841
+2015-01-26 16:34:35,803 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923072829841
+2015-01-26 16:34:36,115 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923072829841
+2015-01-26 16:34:36,429 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923073047957
+2015-01-26 16:34:36,740 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923073047957
+2015-01-26 16:34:37,052 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923073047957
+2015-01-26 16:34:37,364 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923073518034
+2015-01-26 16:34:37,677 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923073518034
+2015-01-26 16:34:37,988 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923073518034
+2015-01-26 16:34:38,300 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923073605875
+2015-01-26 16:34:38,614 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923073605875
+2015-01-26 16:34:38,925 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923073605875
+2015-01-26 16:34:39,236 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923074747444
+2015-01-26 16:34:39,565 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923074747444
+2015-01-26 16:34:39,878 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923074747444
+2015-01-26 16:34:40,188 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923075875069
+2015-01-26 16:34:40,500 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923075875069
+2015-01-26 16:34:40,812 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923075875069
+2015-01-26 16:34:41,138 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923076116528
+2015-01-26 16:34:41,452 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923076116528
+2015-01-26 16:34:41,766 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923076116528
+2015-01-26 16:34:42,078 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923076352412
+2015-01-26 16:34:42,388 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923076352412
+2015-01-26 16:34:42,714 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923076352412
+2015-01-26 16:34:43,027 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923077348521
+2015-01-26 16:34:43,340 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923077348521
+2015-01-26 16:34:43,652 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923077348521
+2015-01-26 16:34:43,964 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923077639890
+2015-01-26 16:34:44,279 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923077639890
+2015-01-26 16:34:44,603 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923077639890
+2015-01-26 16:34:44,916 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923078013351
+2015-01-26 16:34:45,244 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923078013351
+2015-01-26 16:34:45,554 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923078013351
+2015-01-26 16:34:45,868 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923078388165
+2015-01-26 16:34:46,181 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923078388165
+2015-01-26 16:34:46,506 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923078388165
+2015-01-26 16:34:46,818 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923078463132
+2015-01-26 16:34:47,130 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923078463132
+2015-01-26 16:34:47,474 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923078463132
+2015-01-26 16:34:47,788 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923078544304
+2015-01-26 16:34:48,099 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923078544304
+2015-01-26 16:34:48,427 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923078544304
+2015-01-26 16:34:48,753 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923082656234
+2015-01-26 16:34:49,082 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923082656234
+2015-01-26 16:34:49,460 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923082656234
+2015-01-26 16:34:49,768 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923082782676
+2015-01-26 16:34:50,097 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923082782676
+2015-01-26 16:34:50,424 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923082782676
+2015-01-26 16:34:50,751 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923083055989
+2015-01-26 16:34:51,063 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923083055989
+2015-01-26 16:34:51,389 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923083055989
+2015-01-26 16:34:51,703 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923084404312
+2015-01-26 16:34:52,015 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923084404312
+2015-01-26 16:34:52,325 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923084404312
+2015-01-26 16:34:52,639 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923085683579
+2015-01-26 16:34:52,951 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923085683579
+2015-01-26 16:34:53,261 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923085683579
+2015-01-26 16:34:53,574 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923086819906
+2015-01-26 16:34:53,917 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923086819906
+2015-01-26 16:34:54,228 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923086819906
+2015-01-26 16:34:54,540 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923086864530
+2015-01-26 16:34:54,853 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923086864530
+2015-01-26 16:34:55,167 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923086864530
+2015-01-26 16:34:55,476 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923086926965
+2015-01-26 16:34:55,789 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923086926965
+2015-01-26 16:34:56,100 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923086926965
+2015-01-26 16:34:56,412 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923087006562
+2015-01-26 16:34:56,725 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923087006562
+2015-01-26 16:34:57,037 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923087006562
+2015-01-26 16:34:57,348 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923087024467
+2015-01-26 16:34:57,707 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923087024467
+2015-01-26 16:34:58,019 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923087024467
+2015-01-26 16:34:58,333 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923087398621
+2015-01-26 16:34:58,646 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923087398621
+2015-01-26 16:34:58,956 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923087398621
+2015-01-26 16:34:59,272 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923087650910
+2015-01-26 16:34:59,594 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923087650910
+2015-01-26 16:34:59,925 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923087650910
+2015-01-26 16:35:00,235 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923088008988
+2015-01-26 16:35:00,563 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923088008988
+2015-01-26 16:35:00,874 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923088008988
+2015-01-26 16:35:01,188 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923088746641
+2015-01-26 16:35:01,536 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923088746641
+2015-01-26 16:35:01,858 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923088746641
+2015-01-26 16:35:02,170 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923088792140
+2015-01-26 16:35:02,496 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923088792140
+2015-01-26 16:35:02,809 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923088792140
+2015-01-26 16:35:03,120 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923088833123
+2015-01-26 16:35:03,475 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923088833123
+2015-01-26 16:35:03,793 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923088833123
+2015-01-26 16:35:04,121 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923088921545
+2015-01-26 16:35:04,513 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923088921545
+2015-01-26 16:35:04,822 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923088921545
+2015-01-26 16:35:05,133 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923088933862
+2015-01-26 16:35:05,445 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923088933862
+2015-01-26 16:35:05,757 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923088933862
+2015-01-26 16:35:06,086 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923117780510
+2015-01-26 16:35:06,397 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923117780510
+2015-01-26 16:35:06,710 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923117780510
+2015-01-26 16:35:07,023 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923120801442
+2015-01-26 16:35:07,332 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923120801442
+2015-01-26 16:35:07,645 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923120801442
+2015-01-26 16:35:07,958 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923121381706
+2015-01-26 16:35:08,269 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923121381706
+2015-01-26 16:35:08,581 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923121381706
+2015-01-26 16:35:08,893 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923150133708
+2015-01-26 16:35:09,204 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923150133708
+2015-01-26 16:35:09,517 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923150133708
+2015-01-26 16:35:09,832 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923214896904
+2015-01-26 16:35:10,143 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923214896904
+2015-01-26 16:35:10,454 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923214896904
+2015-01-26 16:35:10,765 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923316754135
+2015-01-26 16:35:11,077 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923316754135
+2015-01-26 16:35:11,390 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923316754135
+2015-01-26 16:35:11,701 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Inserting record into mim_history.charge_01: 923363003781
+2015-01-26 16:35:12,014 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating subscriber table for standard user: 923363003781
+2015-01-26 16:35:12,325 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Updating charge_process table: 923363003781
+2015-01-26 16:35:12,638 -  [DefaultQuartzScheduler_Worker-1] DEBUG mim.renewal.db.ChargingHistoryDAO - Batch sql execution completed in (msec)166152
+2015-01-26 16:35:12,638 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - ----------------------------------- Summary - Mon Jan 26 16:35:12 PKT 2015 ---------------------------------
+2015-01-26 16:35:12,639 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Month table: 174, Subscriber table: 174, Charge Process table: 174
+2015-01-26 16:35:12,639 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - -------------------------------------------------------------------------------------------------------------
+2015-01-26 16:53:54,035 -  [main] INFO  mim.renewal.RenewalDaemon - Initializing RenewalDaemon ...
+2015-01-26 16:53:54,119 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon has started...
+2015-01-26 16:53:54,123 -  [main] INFO  mim.renewal.RenewalDaemon - RenewalDaemon will next execute on: Mon Jan 26 17:00:00 PKT 2015
+2015-01-26 16:53:54,136 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - Initializing HistoryDatabaseConnection
+2015-01-26 16:53:54,143 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.HistoryDatabaseConnection - DatabaseConnection: Connecting to jdbc:mysql://localhost:3308/mim_history?useServerPrepStmts=false&rewriteBatchedStatements=true&user=root&password=breekom@123
+2015-01-26 16:53:58,288 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Total renewl records fetch for processing: 0
+2015-01-26 16:53:58,289 -  [DefaultQuartzScheduler_Worker-1] DEBUG mim.renewal.db.ChargingHistoryDAO - Batch sql execution completed in (msec)0
+2015-01-26 16:53:58,290 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - ----------------------------------- Summary - Mon Jan 26 16:53:58 PKT 2015 ---------------------------------
+2015-01-26 16:53:58,290 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - Month table: 0, Subscriber table: 0, Charge Process table: 0
+2015-01-26 16:53:58,290 -  [DefaultQuartzScheduler_Worker-1] INFO  mim.renewal.db.ChargingHistoryDAO - -------------------------------------------------------------------------------------------------------------

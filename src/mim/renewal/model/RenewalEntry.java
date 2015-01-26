@@ -14,6 +14,7 @@ public class RenewalEntry {
 	private int subscriberType;
 	private String referenceId;
 	private String errorCode;
+	public int cos;
 	
 	public int getId() {
 		return id;
@@ -91,6 +92,14 @@ public class RenewalEntry {
 	public void setErrorCode(String errorCode) {
 		this.errorCode = errorCode;
 	}
+	
+	public int getCos() {
+		return cos;
+	}
+	public void setCos(int cos) {
+		this.cos = cos;
+	}
+	
 	@Override
 	public String toString() {
 		return "RenewalEntry [id=" + id + ", aParty=" + aParty + ", amount="

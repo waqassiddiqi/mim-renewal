@@ -32,7 +32,15 @@ public class Client {
 	private static String ucipIP = "127.0.0.1";
 	private static int ucipPort = 8081;
 	
+	private static String ucipIPChamps = "127.0.0.1";
+	private static int ucipPortChamps = 8081;
+	
 	private Logger log = Logger.getLogger(getClass().getName());
+	private static double chargeAamountChampions = 2.5D;
+	private static double chargeAamount = 2.5D;
+	
+	private static boolean isEnabled = true;
+	private static int defaultReturnCode = 0;
 	
 	int index = 0;
 	
@@ -42,51 +50,76 @@ public class Client {
 			ucipPort = Integer.parseInt(myResources.getString("ucip.port"));
 			ucipIP = myResources.getString("ucip.ip");
 			
+			ucipPortChamps = Integer.parseInt(myResources.getString("ucip.champs.port"));
+			ucipIPChamps = myResources.getString("ucip.champs.ip");
+		      
+			chargeAamount = Double.parseDouble(myResources.getString("renewal.charge_amount"));
+			chargeAamountChampions = Double.parseDouble(myResources.getString("renewal.champs.charge_amount"));
+			
+			if(Integer.parseInt(myResources.getString("ucip.enabled")) == 0) {
+				isEnabled = false;
+				
+				defaultReturnCode = Integer.parseInt(myResources.getString("ucip.default_return_code"));
+			}
+			
 		} catch (Exception e) { }
 	}
 	
 	public void sendRequest(List<RenewalEntry> entries) {
-		for(RenewalEntry entry : entries) {
-			if(entry.getStat() != 2) {
-				//sendRequest(entry);
-				
+		for (RenewalEntry entry : entries) {
+			if (entry.getStat() != 2) {
 				entry.setReferenceId(Util.generateReferenceId());
-				
+
 				Calendar expiryCal = Calendar.getInstance();
-				expiryCal.add(Calendar.DAY_OF_MONTH, 7);
-				
+				expiryCal.add(5, 7);
+
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+				if (entry.getCos() == 1) {
+					entry.setAmount(chargeAamount);
+				} else if (entry.getCos() == 2) {
+					entry.setAmount(chargeAamountChampions);
+				}
 				
-				String chargingRequest = RequestBuilder.build(RequestBuilder.REQUEST_FUNCTION_CHARGE,  
-					new String[] { "msisdn", entry.getaParty(), "expirydate", 
-						sdf.format(expiryCal.getTime()), "refid", entry.getReferenceId(), 
-						"amount", Integer.toString((int)entry.getAmount())
-					});
+				String chargingRequest = RequestBuilder.build(
+						RequestBuilder.REQUEST_FUNCTION_CHARGE,
+						new String[] { "msisdn", entry.getaParty(),
+								"expirydate", sdf.format(expiryCal.getTime()),
+								"refid", entry.getReferenceId(), "amount",
+								Integer.toString((int) entry.getAmount()) });
+
+				RequestResult rs = null;
 				
+				int errorCode = 0;
 				
-				
-				RequestResult rs = sendRequest(ucipIP, ucipPort, 20000, 20000, chargingRequest, entry.getReferenceId());
-				
-				int errorCode = processResponse(rs.responseString);
-				
+				if(isEnabled) {
+					if (entry.getCos() == 2) {
+						rs = sendRequest(ucipIPChamps, ucipPortChamps, 20000, 20000, chargingRequest, entry.getReferenceId());
+					} else {
+						rs = sendRequest(ucipIP, ucipPort, 20000, 20000, chargingRequest, entry.getReferenceId());
+					}
+					
+					errorCode = processResponse(rs.responseString);
+				} else {
+					errorCode = defaultReturnCode;
+				}
+
 				entry.setErrorCode(Integer.toString(errorCode));
-				
-			    switch(errorCode) {
-			    	case 0:
-			    		entry.setStat(2);
-			    		break;
-			    		
-			    	case 124:
-			    		entry.setStat(3);
-			    		break;
-			    		
-			    	default:
-			    		entry.setStat(1);
-			    }
-				
-			    entry.setRetryCount(entry.getRetryCount() + 1);
-				
-				index++;
+					switch (errorCode) {
+						case 0:
+							entry.setStat(2);
+							break;
+						
+						case 124:
+							entry.setStat(3);
+							break;
+						
+						default:
+							entry.setStat(1);
+				}
+					
+				entry.setRetryCount(entry.getRetryCount() + 1);
+
+				this.index += 1;
 			}
 		}
 	}
